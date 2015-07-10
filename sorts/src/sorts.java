@@ -41,7 +41,7 @@ public class sorts {
         while (x < (list.length/3)) x = 3*x+1;
             while (x >= 1) {
                 for (int i = x; i < list.length;i++){
-                    for (int j = i;j >= x && list[j] <= list[j-x];j -= x){
+                    for (int j = i;j >= x && less(list[j],list[j-x]);j -= x){
                         int temp = list[j];
                         list[j] = list[j-x];
                         list[j-x] = temp;
@@ -51,6 +51,14 @@ public class sorts {
             }
 
         return list;
+    }
+
+    private boolean less(int a, int b){
+        if(a < b){
+            return true;
+        }
+
+        return false;
     }
 
     public static void main(String[] args) {
